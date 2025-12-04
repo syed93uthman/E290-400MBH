@@ -53,11 +53,21 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+    # Additional include directories
+    ../../Middlewares/Display
+    ../../Middlewares/Display/menu
+    ../../Middlewares/u8g2Lib/inc
+    ../../Core/e290/
 )
 
 # Add project symbols (macros)
+file(GLOB U8G2_SOURCES "../../Middlewares/u8g2Lib/src/*.c")
+
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
+    ../../Middlewares/Display/dispDirver.c
+    ../../Core/e290/e290_demo.c
+    ${U8G2_SOURCES}
 )
 
 # Add linked libraries

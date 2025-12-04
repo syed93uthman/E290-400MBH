@@ -24,12 +24,6 @@ target_include_directories(stm32cubemx INTERFACE
     ../../Drivers/CMSIS/Include
 )
 
-# Additional include directories
-target_include_directories(stm32cubemx INTERFACE
-    ../../Middlewares/Display
-    ../../Middlewares/Display/menu
-    ../../Middlewares/u8g2Lib/inc
-)
 
 target_sources(stm32cubemx INTERFACE
     ../../Core/Src/main.c
@@ -71,14 +65,6 @@ target_sources(stm32cubemx INTERFACE
     ../../Core/Src/sysmem.c
     ../../Core/Src/syscalls.c
     ../../startup_stm32f103xb.s
-)
-
-
-file(GLOB U8G2_SOURCES "../../Middlewares/u8g2Lib/src/*.c")
-
-target_sources(stm32cubemx INTERFACE
-    ../../Middlewares/Display/dispDirver.c
-    ${U8G2_SOURCES}
 )
 
 target_link_directories(stm32cubemx INTERFACE
