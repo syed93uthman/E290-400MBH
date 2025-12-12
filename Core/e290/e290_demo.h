@@ -5,6 +5,7 @@
 #include "stm32f1xx_hal.h"
 #include "tim.h"
 #include "string.h"
+#include "stdbool.h"
 
 typedef struct
 {
@@ -19,7 +20,6 @@ typedef struct
 extern pan_config_t user_config;
 
 // Hardware abstraction functions
-uint8_t spi_readwritebyte(uint8_t txdata);
 void TIM_Delay_us(uint32_t us);
 
 // E290 demo functions

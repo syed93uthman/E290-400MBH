@@ -45,34 +45,31 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
 )
 
+file(GLOB PAN_DRIVER_SOURCES "Drivers/PAN_Driver/*.c")
+file(GLOB U8G2_SOURCES "Middlewares/u8g2Lib/src/*.c")
+
+# Add sources to executable
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE
+    # Add user sources here
+    Core/e290/e290_demo.c
+    Middlewares/Display/dispDirver.c
+    ${PAN_DRIVER_SOURCES}
+    ${U8G2_SOURCES}
+)
+
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
-    # Additional include directories
+    Core/e290/
+    Drivers/PAN_Driver
     Middlewares/Display
     Middlewares/Display/menu
     Middlewares/u8g2Lib/inc
-    Core/e290/
-    Drivers/PAN_Driver/
 )
 
 # Add project symbols (macros)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
-)
-
-# Glob source files
-file(GLOB U8G2_SOURCES Middlewares/u8g2Lib/src/*.c)
-file(GLOB PAN_DRIVER_SOURCES Drivers/PAN_Driver/*.c)
-
-# Add sources to executable
-target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user sources here
-    Middlewares/Display/dispDirver.c
-    Core/e290/e290_demo.c
-    Core/e290/e290_hal.c
-    ${U8G2_SOURCES}
-    ${PAN_DRIVER_SOURCES}
 )
 
 # Add linked libraries
