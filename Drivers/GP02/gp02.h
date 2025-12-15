@@ -1,0 +1,16 @@
+/*******************************************************************************
+ * @note Copyright (C) 2025 Kemalak Group Sdn Bhd. All rights reserved.
+ *
+ * @file pan_rf.h
+ * @brief 
+ * @author Syed Uthman
+ * @author Akmal
+ *
+ * @history - V0.8, 2024-4
+*******************************************************************************/
+
+#ifndef __GP02_H__
+#define __GP02_H__
+
+
+#endif
