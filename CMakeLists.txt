@@ -27,6 +27,8 @@ include("cmake/gcc-arm-none-eabi.cmake")
 # Enable compile command to ease indexing with e.g. clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
+add_definitions(-w)
+
 # Enable CMake support for ASM and C languages
 enable_language(C ASM)
 
