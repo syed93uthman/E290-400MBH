@@ -114,5 +114,34 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
+void gpio_usb_ctrl_on(void)
+{
+	HAL_GPIO_WritePin( USB_CTRL_GPIO_Port , USB_CTRL_Pin , GPIO_PIN_SET );
+}
 
+void gpio_usb_ctrl_off(void)
+{
+	HAL_GPIO_WritePin( USB_CTRL_GPIO_Port , USB_CTRL_Pin , GPIO_PIN_RESET );
+}
+
+void gpio_led_tx_on(void)
+{
+	HAL_GPIO_WritePin( LED_TX_GPIO_Port,  LED_TX_Pin, GPIO_PIN_RESET);
+}
+
+void gpio_led_tx_off(void)
+{
+	HAL_GPIO_WritePin( LED_TX_GPIO_Port,  LED_TX_Pin, GPIO_PIN_SET);
+}
+
+void gpio_led_rx_on(void)
+{
+    HAL_GPIO_WritePin( LED_RX_GPIO_Port,  LED_RX_Pin, GPIO_PIN_RESET);
+
+}
+
+void gpio_led_rx_off(void)
+{
+	HAL_GPIO_WritePin( LED_RX_GPIO_Port,  LED_RX_Pin, GPIO_PIN_SET);
+}
 /* USER CODE END 2 */

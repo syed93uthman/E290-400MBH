@@ -24,6 +24,9 @@
 #define MaxVisible_Number  4 // 可见菜单项数量
 
 // 最大Y坐标，根据字体大小和最大可见项目数计算得出
+#ifdef LINE_MAX
+#undef LINE_MAX
+#endif
 #define LINE_MAX    Font_Size*MaxVisible_Number
 
 // 最小Y坐标，即第一行的位置

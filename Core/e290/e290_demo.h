@@ -17,10 +17,12 @@ typedef struct
 	int tx_count;
 }pan_config_t;
 
-extern pan_config_t user_config;
+// extern pan_config_t user_config;
 
 // Hardware abstraction functions
 void TIM_Delay_us(uint32_t us);
+
+void e290_demo_menu_config( menu_config_t *config );
 
 // E290 demo functions
 bool e290_demo_check_rx_done( uint8_t *buffer, uint8_t * length  , double *rssi);
