@@ -27,6 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "menu.h"
 
 /* USER CODE END Includes */
 
@@ -93,10 +94,11 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C2_Init();
   MX_SPI1_Init();
-  MX_USB_DEVICE_Init();
+  // MX_USB_DEVICE_Init();
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  Menu_Init();
 
   /* USER CODE END 2 */
 
@@ -104,10 +106,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_GPIO_TogglePin(LED_RX_GPIO_Port, LED_RX_Pin);
-    HAL_Delay(500);
-    HAL_GPIO_TogglePin(LED_RX_GPIO_Port, LED_RX_Pin);
-    HAL_Delay(500);
+    Menu_Task();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
