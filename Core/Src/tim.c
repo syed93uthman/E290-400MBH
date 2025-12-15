@@ -131,5 +131,20 @@ void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* tim_pwmHandle)
 }
 
 /* USER CODE BEGIN 1 */
+void buzzer_on(void)
+{
+	HAL_TIM_PWM_Start( &htim2 , TIM_CHANNEL_2 );
+}
 
+void buzzer_off(void)
+{
+	HAL_TIM_PWM_Stop( &htim2 , TIM_CHANNEL_2 );
+}
+
+void buzzer_button_push(void)
+{
+	buzzer_on();
+	HAL_Delay(50);
+	buzzer_off();	
+}
 /* USER CODE END 1 */

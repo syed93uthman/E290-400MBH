@@ -52,7 +52,11 @@ file(GLOB U8G2_SOURCES "Middlewares/u8g2Lib/src/*.c")
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     Core/e290/e290_demo.c
-    Middlewares/Display/dispDirver.c
+    Core/Src/key.c
+    Core/Src/u8g2_hal.c
+    Middlewares/MultMenu/menu/menu.c
+    Middlewares/MultMenu/disp/dispDirver.c
+    Middlewares/MultMenu/application/application.c
     ${PAN_DRIVER_SOURCES}
     ${U8G2_SOURCES}
 )
@@ -62,8 +66,9 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
     Core/e290/
     Drivers/PAN_Driver
-    Middlewares/Display
-    Middlewares/Display/menu
+    Middlewares/MultMenu/menu
+    Middlewares/MultMenu/disp
+    Middlewares/MultMenu/application
     Middlewares/u8g2Lib/inc
 )
 

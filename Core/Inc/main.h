@@ -31,12 +31,19 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdbool.h>
+#include <stdio.h>
+#include "application.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+typedef enum
+{	
+	KEY_NAME_UP = 0,
+	KEY_NAME_DOWN ,
+	KEY_NAME_ENTER,
+}key_name_t;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -87,6 +94,22 @@ void Error_Handler(void);
 #define KEY_DOWN_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
+
+void usb_printf(const char *format, ...);
+
+void gpio_usb_ctrl_on(void);
+void gpio_usb_ctrl_off(void);
+void gpio_led_tx_on(void);
+void gpio_led_tx_off(void);
+void gpio_led_rx_on(void);
+void gpio_led_rx_off(void);
+void buzzer_on(void);
+void buzzer_off(void);
+void buzzer_button_push(void);
+
+bool key_check_press( key_name_t name );
+void key_set_continue( key_name_t name , bool enable );
+void key_timer_1ms_interrupt_callback(void);
 
 /* USER CODE END Private defines */
 
