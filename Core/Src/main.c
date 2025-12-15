@@ -103,6 +103,7 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  Menu_Init();
 
   HAL_TIM_Base_Start(&htim2);
   ret = rf_init();
@@ -130,19 +131,7 @@ int main(void)
   while (1)
   {
     Menu_Task();
-
     e290_demo_task();
-
-    // now = HAL_GetTick();
-    // if (now > next_tick) {
-
-    //     char str[] = "Tick 0000000000";
-    //     sprintf(str, "Tick %lu", now);
-    //     OLED_DrawStr(10, 10, str);
-    //     OLED_SendBuffer();
-
-    //     next_tick = now + 1000;
-    // }
 
     /* USER CODE END WHILE */
 
