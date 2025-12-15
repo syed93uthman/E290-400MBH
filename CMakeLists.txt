@@ -60,6 +60,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Middlewares/MultMenu/disp/dispDirver.c
     Middlewares/MultMenu/application/application.c
     ${PAN_DRIVER_SOURCES}
+    Drivers/GP02/gp02.c
     ${U8G2_SOURCES}
 )
 
@@ -68,6 +69,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
     Core/e290/
     Drivers/PAN_Driver
+    Drivers/GP02
     Middlewares/MultMenu/menu
     Middlewares/MultMenu/disp
     Middlewares/MultMenu/application
