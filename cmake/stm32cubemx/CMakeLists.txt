@@ -33,10 +33,6 @@ target_sources(stm32cubemx INTERFACE
     ../../Core/Src/usart.c
     ../../Core/Src/stm32f1xx_it.c
     ../../Core/Src/stm32f1xx_hal_msp.c
-    ../../USB_DEVICE/App/usb_device.c
-    ../../USB_DEVICE/App/usbd_desc.c
-    ../../USB_DEVICE/App/usbd_cdc_if.c
-    ../../USB_DEVICE/Target/usbd_conf.c
     ../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c
     ../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c
     ../../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c
