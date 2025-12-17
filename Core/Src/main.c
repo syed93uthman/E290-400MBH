@@ -28,6 +28,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "menu.h"
+#include "e290_demo.h"
+#include "pan_port.h"
+#include "pan_rf.h"
 
 /* USER CODE END Includes */
 
@@ -72,6 +75,8 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 
+  uint32_t ret = 0;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -98,15 +103,47 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+
+  HAL_TIM_Base_Start(&htim2);
+  ret = rf_init();
+  if(ret != OK)
+  {
+      printf("RF Init Fail\r\n");
+      
+      while(1);
+  }
+  else
+  {
+      printf("Start !\r\n");
+  }
+  rf_set_default_para();
+
+
   Menu_Init();
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint32_t next_tick=0;
+  uint32_t now = 0;
   while (1)
   {
     Menu_Task();
+
+    e290_demo_task();
+
+    // now = HAL_GetTick();
+    // if (now > next_tick) {
+
+    //     char str[] = "Tick 0000000000";
+    //     sprintf(str, "Tick %lu", now);
+    //     OLED_DrawStr(10, 10, str);
+    //     OLED_SendBuffer();
+
+    //     next_tick = now + 1000;
+    // }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
