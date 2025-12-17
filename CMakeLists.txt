@@ -54,6 +54,7 @@ file(GLOB U8G2_SOURCES "Middlewares/u8g2Lib/src/*.c")
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     Core/e290/e290_demo.c
+    Core/e290/e290_hal.c
     Core/Src/key.c
     Core/Src/u8g2_hal.c
     Middlewares/MultMenu/menu/menu.c
