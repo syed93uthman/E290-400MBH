@@ -103,6 +103,22 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+
+  HAL_TIM_Base_Start(&htim2);
+  ret = rf_init();
+  if(ret != OK)
+  {
+      printf("RF Init Fail\r\n");
+      
+      while(1);
+  }
+  else
+  {
+      printf("Start !\r\n");
+  }
+  rf_set_default_para();
+
+
   Menu_Init();
 
   HAL_TIM_Base_Start(&htim2);
